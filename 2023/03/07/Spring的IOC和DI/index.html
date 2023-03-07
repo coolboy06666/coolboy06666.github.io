@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>Spring的IOC和DI | 清风不问归途</title><meta name="author" content="YBX-CN"><meta name="copyright" content="YBX-CN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Spring：spring是一个管理型框架，能整合众多著名的第三方框架、类库。在企业技术选型时，很多都会考虑选取的框架或技术和spring集成是否方便。 一、Spring的核心1、IOC:（Inversesion of Control 反转控制） 控制反转:将对象的创建权,交由Spring完成，不再是由我们自己编写代码去new 2、AOP:Aspect Oriented Programming 面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring的IOC和DI">
+<meta property="og:url" content="http://example.com/2023/03/07/Spring%E7%9A%84IOC%E5%92%8CDI/index.html">
+<meta property="og:site_name" content="清风不问归途">
+<meta property="og:description" content="Spring：spring是一个管理型框架，能整合众多著名的第三方框架、类库。在企业技术选型时，很多都会考虑选取的框架或技术和spring集成是否方便。 一、Spring的核心1、IOC:（Inversesion of Control 反转控制） 控制反转:将对象的创建权,交由Spring完成，不再是由我们自己编写代码去new 2、AOP:Aspect Oriented Programming 面">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/Doraemon.png">
+<meta property="article:published_time" content="2023-03-07T05:52:15.000Z">
+<meta property="article:modified_time" content="2023-03-07T06:01:32.271Z">
+<meta property="article:author" content="YBX-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/Doraemon.png"><link rel="shortcut icon" href="/img/Doraemon.png"><link rel="canonical" href="http://example.com/2023/03/07/Spring%E7%9A%84IOC%E5%92%8CDI/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Spring的IOC和DI',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-03-07 14:01:32'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Doraemon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Doraemon2.png')"><nav id="nav"><span id="blog-info"><a href="/" title="清风不问归途"><span class="site-name">清风不问归途</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Spring的IOC和DI</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-03-07T05:52:15.000Z" title="Created 2023-03-07 13:52:15">2023-03-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-03-07T06:01:32.271Z" title="Updated 2023-03-07 14:01:32">2023-03-07</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Spring的IOC和DI"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Spring："><a href="#Spring：" class="headerlink" title="Spring："></a>Spring：</h1><p>spring是一个管理型框架，能整合众多著名的第三方框架、类库。在企业技术选型时，很多都会考虑选取的框架或技术和spring集成是否方便。</p>
+<h1 id="一、Spring的核心"><a href="#一、Spring的核心" class="headerlink" title="一、Spring的核心"></a>一、Spring的核心</h1><p>1、IOC:（Inversesion of Control 反转控制）</p>
+<p>控制反转:将对象的创建权,交由Spring完成，不再是由我们自己编写代码去new</p>
+<p>2、AOP:Aspect Oriented Programming 面向切面编程 是面向对象的功能延伸。</p>
+<h1 id="二、搭建Spring"><a href="#二、搭建Spring" class="headerlink" title="二、搭建Spring"></a>二、搭建Spring</h1><p>导入Spring开发的基本包坐标</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 自定义版本号 --&gt;</span><br><span class="line">&lt;properties&gt;</span><br><span class="line">    &lt;!-- ‘spring.version’自定义的标记 --&gt;</span><br><span class="line">    &lt;spring.version&gt;5.1.5.RELEASE&lt;/spring.version&gt;</span><br><span class="line">&lt;/properties&gt;</span><br><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;!-- 这个jar 文件为Spring 核心提供了大量扩展。可以找到使用Spring ApplicationContext --&gt;</span><br><span class="line">    &lt;!-- https://mvnrepository.com/artifact/org.springframework/spring-context --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-context&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;!-- 这个jar文件包含Spring框架基本的核心工具类 --&gt;</span><br><span class="line">    &lt;!-- https://mvnrepository.com/artifact/org.springframework/spring-core --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-core&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- IOC容器必备jar包 --&gt;</span><br><span class="line">    &lt;!-- https://mvnrepository.com/artifact/org.springframework/spring-beans --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-beans&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="创建Spring配置文件"><a href="#创建Spring配置文件" class="headerlink" title="创建Spring配置文件"></a>创建Spring配置文件</h2><p>名字可任意取，但是建议规范命名为：applicationContext.xml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans </span><br><span class="line">                           http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h2><p>IOC—Inversion of Control，即“控制反转”。 在Java开发中，IOC意味着将你设计好的对象交给spring完成，而不是由我们自己编写代码去new了。</p>
+<ul>
+<li>IoC能做什么？ IOC 是一种思想，一个重要的面向对象编程的法则，它能指导我们如何设计出松耦合、更优良的程序。 传统应用程序都是由我们在类内部主动创建依赖对象，从而导致类与类之间高耦合，难于测试；有了IOC容器后，把创建和查找依赖对象的控制权交给了spring容器，由spring容器进行注入组合对象，所以对象与对象之间是松散耦合， 这样也方便测试，利于功能复用，更重要的是使得程序的整个体系结构变得非常灵活。工厂模式+反射+配置文件，就是spring IOC的原理。</li>
+</ul>
+<h2 id="在Spring配置文件中配置"><a href="#在Spring配置文件中配置" class="headerlink" title="在Spring配置文件中配置"></a>在Spring配置文件中配置</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">bean标签：用于配置对象交由Spring来创建。</span><br><span class="line">默认情况下它调用的是类中的无参构造函数，如果没有无参构造函数则不能创建成功</span><br><span class="line">​</span><br><span class="line">id：标识名不允许重复</span><br><span class="line">class：bean的全限定名称</span><br><span class="line">--&gt;</span><br><span class="line">&lt;bean id=&quot;user&quot; class=&quot;entity.User&quot;&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">​</span><br><span class="line">​</span><br><span class="line">&lt;!-- 指定构造方法创建对象 --&gt;</span><br><span class="line">&lt;bean id=&quot;user1&quot; class=&quot;entity.User&quot;&gt;</span><br><span class="line">    &lt;!-- 构造方法的参数名字，类型，顺序 --&gt;</span><br><span class="line">    &lt;constructor-arg name=&quot;id&quot; type=&quot;java.lang.Integer&quot; index=&quot;0&quot;&gt;</span><br><span class="line">        &lt;value&gt;1&lt;/value&gt;</span><br><span class="line">    &lt;/constructor-arg&gt;</span><br><span class="line">    &lt;constructor-arg name=&quot;name&quot; index=&quot;1&quot;&gt;</span><br><span class="line">        &lt;value&gt;李四&lt;/value&gt;</span><br><span class="line">    &lt;/constructor-arg&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="给创建的对象注入值："><a href="#给创建的对象注入值：" class="headerlink" title="给创建的对象注入值："></a>给创建的对象注入值：</h2><p>通过属性注入：要求属性一定要有set方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- id是自命名，要求是唯一的 --&gt;</span><br><span class="line">&lt;bean id=&quot;user&quot; class=&quot;entity.User&quot;&gt;</span><br><span class="line">    &lt;property name=&quot;name&quot; value=&quot;张三&quot;&gt;&lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<p>通过构造方法注入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 指定构造方法创建对象 --&gt;</span><br><span class="line">&lt;bean id=&quot;user1&quot; class=&quot;entity.User&quot;&gt;</span><br><span class="line">    &lt;!-- 构造方法的参数名字，类型，顺序 --&gt;</span><br><span class="line">    &lt;constructor-arg name=&quot;id&quot; type=&quot;java.lang.Integer&quot; index=&quot;0&quot;&gt;</span><br><span class="line">        &lt;value&gt;1&lt;/value&gt;</span><br><span class="line">    &lt;/constructor-arg&gt;</span><br><span class="line">    &lt;constructor-arg name=&quot;name&quot; index=&quot;1&quot;&gt;</span><br><span class="line">        &lt;value&gt;李四&lt;/value&gt;</span><br><span class="line">    &lt;/constructor-arg&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="给创建的对象注入其他bean"><a href="#给创建的对象注入其他bean" class="headerlink" title="给创建的对象注入其他bean"></a>给创建的对象注入其他bean</h2><p>DI—Dependency Injection，即“依赖注入”： 组件之间依赖关系由容器在运行期决定，形象的说，即由容器动态的将某个依赖关系注入到组件之中。 依赖注入的目的并非为软件系统带来更多功能，而是为了提升组件重用的频率，并为系统搭建一个灵活、可扩展的 平台。 应用程序需要 IOC容器来提供对象需要的外部资源</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;userDao&quot; class=&quot;dao.impl.UserDaoImpl&quot;&gt;</span><br><span class="line">   </span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">​</span><br><span class="line">&lt;bean id=&quot;userService&quot; class=&quot;service.impl.UserServiceImpl&quot;&gt;</span><br><span class="line">    &lt;!--name名称要和UserService中set方法名匹配，ref表示引用spring配置文件中已定义的bean id --&gt;</span><br><span class="line">    &lt;property name=&quot;userDAO&quot; ref=&quot;userDAO&quot;&gt;&lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="三、springBean的生命周期"><a href="#三、springBean的生命周期" class="headerlink" title="三、springBean的生命周期"></a>三、springBean的生命周期</h2><p>User类中增加对应的方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public void start()&#123;</span><br><span class="line">    System.out.println(&quot;spring中bean初始化&quot;);</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">public void end()&#123;</span><br><span class="line">    System.out.println(&quot;spring中bean销毁&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配置文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;user&quot; class=&quot;entity.User&quot; init-method=&quot;start&quot; destroy-method=&quot;end&quot;&gt;</span><br><span class="line">    &lt;!-- 构造方法的参数名字，类型，顺序 --&gt;</span><br><span class="line">    &lt;constructor-arg name=&quot;id&quot; type=&quot;java.lang.Integer&quot; index=&quot;0&quot;&gt;</span><br><span class="line">        &lt;value&gt;1&lt;/value&gt;</span><br><span class="line">    &lt;/constructor-arg&gt;</span><br><span class="line">    &lt;constructor-arg name=&quot;name&quot; index=&quot;1&quot;&gt;</span><br><span class="line">        &lt;value&gt;李四&lt;/value&gt;</span><br><span class="line">    &lt;/constructor-arg&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<p>结果：先实例化，然后初始化，然后执行对应的方法，最后销毁</p>
+<p>销毁方法可以没有执行，解决方案：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] agrs)&#123;</span><br><span class="line">    ApplicationContext context = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);</span><br><span class="line">    User user = (User) context.getBean(&quot;user&quot;);</span><br><span class="line">    user.test();</span><br><span class="line">    context.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="四、spring中bean的scope作用域"><a href="#四、spring中bean的scope作用域" class="headerlink" title="四、spring中bean的scope作用域"></a>四、spring中bean的scope作用域</h1><h2 id="单例模式-singleton-默认"><a href="#单例模式-singleton-默认" class="headerlink" title="单例模式(singleton)-默认"></a>单例模式(singleton)-默认</h2><p>scope&#x3D;”singleton” 当一个bean的作用域为singleton, 那么Spring IoC容器中只会存在一个共享的bean实例，并且所有对bean的请求，只要id与该bean定义相匹配，则只会返回bean的同一实例。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- bean也可以使用name定义名字，name可以重复，一般是有特殊字符的bean使用name --&gt;</span><br><span class="line">&lt;bean name=&quot;user&quot; class=&quot;entity.User&quot; scope=&quot;singleton&quot;&gt;&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<p>测试：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] agrs)&#123;</span><br><span class="line">    //在读取Spring核心配置文件时，就会创建Bean的对象</span><br><span class="line">    ApplicationContext applicationContext = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);</span><br><span class="line">    //多次获取到的是同一个对象</span><br><span class="line">    ScopeBean bean1 = (ScopeBean) applicationContext.getBean(&quot;user&quot;);</span><br><span class="line">    ScopeBean bean2 = (ScopeBean) applicationContext.getBean(&quot;user&quot;);</span><br><span class="line">    System.out.println(bean1);</span><br><span class="line">    System.out.println(bean2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>生命周期：</p>
+<p>对象出生: 当应用加载，创建容器时，对象就被创建了。</p>
+<p>对象活着: 只要容器在，对象一直活着。</p>
+<p>对象死亡: 当应用卸载，销毁spring容器时，对象就被销毁了。</p>
+<h1 id="多例模式-prototype"><a href="#多例模式-prototype" class="headerlink" title="多例模式(prototype)"></a>多例模式(prototype)</h1><p>标签中配置：scope&#x3D;”prototype” 以原型模式存在,每次getBean都new一个对象，长时间不使用时自动销毁</p>
+<p>总结：单例和多例是常用的两个 如果不指定Bean的作用域，Spring默认使用singleton作用域，singleton作用域的Bean实例一旦创建成功，可以重复使用。</p>
+<p>prototype作用域每次getBean都new一个对象，长时间不使用时自动销毁。Java在创建实例时，需要进行内存申请；销毁实例时，需要完成垃圾回收，这些工作都会导致系统开销的增加。因此prototype作用域Bean的创建、销毁代价比较大。</p>
+<p>除非必要，否则尽量避免将Bean被设置成prototype作用域。</p>
+<h1 id="请求作用域-request"><a href="#请求作用域-request" class="headerlink" title="请求作用域(request)"></a>请求作用域(request)</h1><p>在一次HTTP请求中，一个bean定义对应一个实例；即每次HTTP请求将会有各自的bean实例， 它们依据某个bean定义创建而成。该作用域仅在基于web的Spring ApplicationContext情形下有效。 考虑以后action的bean定义：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;loginAction&quot; class=&quot;com.xr.action.LoginAction&quot; scope=&quot;request&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="会话作用域-session"><a href="#会话作用域-session" class="headerlink" title="会话作用域(session)"></a>会话作用域(session)</h1><p>在一个HTTP Session中，一个bean定义对应一个实例。该作用域仅在基于web的Spring ApplicationContext情形下有效。</p>
+<h1 id="五、引入其他配置文件"><a href="#五、引入其他配置文件" class="headerlink" title="五、引入其他配置文件"></a>五、引入其他配置文件</h1><p>实际开发中，Spring的配置内容非常多，这就导致Spring配置很繁杂且体积很大，所以，可以将部分配置拆解到其他 配置文件中，而在Spring主配置文件通过import标签进行加载</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;import resource=&quot;applicationContext-xxx.xml&quot;/&gt;</span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">YBX-CN</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/03/07/Spring%E7%9A%84IOC%E5%92%8CDI/">http://example.com/2023/03/07/Spring%E7%9A%84IOC%E5%92%8CDI/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/Doraemon.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/03/07/Spring%E7%9A%84AOP/" title="Spring的AOP"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Spring的AOP</div></div></a></div><div class="next-post pull-right"><a href="/2023/03/06/MyBatis%E6%A1%86%E6%9E%B6/" title="MyBatis框架"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">MyBatis框架</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/Doraemon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">YBX-CN</div><div class="author-info__description">归途也还可爱</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">Spring：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81Spring%E7%9A%84%E6%A0%B8%E5%BF%83"><span class="toc-number">2.</span> <span class="toc-text">一、Spring的核心</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%90%AD%E5%BB%BASpring"><span class="toc-number">3.</span> <span class="toc-text">二、搭建Spring</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BASpring%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">3.1.</span> <span class="toc-text">创建Spring配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IOC"><span class="toc-number">3.2.</span> <span class="toc-text">IOC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8Spring%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%B8%AD%E9%85%8D%E7%BD%AE"><span class="toc-number">3.3.</span> <span class="toc-text">在Spring配置文件中配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%99%E5%88%9B%E5%BB%BA%E7%9A%84%E5%AF%B9%E8%B1%A1%E6%B3%A8%E5%85%A5%E5%80%BC%EF%BC%9A"><span class="toc-number">3.4.</span> <span class="toc-text">给创建的对象注入值：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%99%E5%88%9B%E5%BB%BA%E7%9A%84%E5%AF%B9%E8%B1%A1%E6%B3%A8%E5%85%A5%E5%85%B6%E4%BB%96bean"><span class="toc-number">3.5.</span> <span class="toc-text">给创建的对象注入其他bean</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81springBean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">3.6.</span> <span class="toc-text">三、springBean的生命周期</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81spring%E4%B8%ADbean%E7%9A%84scope%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">4.</span> <span class="toc-text">四、spring中bean的scope作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F-singleton-%E9%BB%98%E8%AE%A4"><span class="toc-number">4.1.</span> <span class="toc-text">单例模式(singleton)-默认</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E4%BE%8B%E6%A8%A1%E5%BC%8F-prototype"><span class="toc-number">5.</span> <span class="toc-text">多例模式(prototype)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E4%BD%9C%E7%94%A8%E5%9F%9F-request"><span class="toc-number">6.</span> <span class="toc-text">请求作用域(request)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BC%9A%E8%AF%9D%E4%BD%9C%E7%94%A8%E5%9F%9F-session"><span class="toc-number">7.</span> <span class="toc-text">会话作用域(session)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%BC%95%E5%85%A5%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">8.</span> <span class="toc-text">五、引入其他配置文件</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/07/Spring%E7%9A%84AOP/" title="Spring的AOP">Spring的AOP</a><time datetime="2023-03-07T06:01:22.000Z" title="Created 2023-03-07 14:01:22">2023-03-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/07/Spring%E7%9A%84IOC%E5%92%8CDI/" title="Spring的IOC和DI">Spring的IOC和DI</a><time datetime="2023-03-07T05:52:15.000Z" title="Created 2023-03-07 13:52:15">2023-03-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/06/MyBatis%E6%A1%86%E6%9E%B6/" title="MyBatis框架">MyBatis框架</a><time datetime="2023-03-06T06:18:00.000Z" title="Created 2023-03-06 14:18:00">2023-03-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/06/Vue/" title="Vue">Vue</a><time datetime="2023-03-06T05:50:30.000Z" title="Created 2023-03-06 13:50:30">2023-03-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/03/Mysql%E5%87%BD%E6%95%B0/" title="Mysql函数">Mysql函数</a><time datetime="2023-03-03T02:11:42.000Z" title="Created 2023-03-03 10:11:42">2023-03-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By YBX-CN</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
