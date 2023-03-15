@@ -1,0 +1,249 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>Idea使用配置并使用Git | 清风不问归途</title><meta name="author" content="YBX-CN"><meta name="copyright" content="YBX-CN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="注册码云要想使用码云的相关服务，需要注册账号（地址： https:&#x2F;&#x2F;gitee.com&#x2F;signup）   创建远程仓库    填写仓库信息   查看仓库   邀请其他开发人员前面已经在码云上创建了自己的远程仓库，目前仓库成员只有自己一个人（身份为管理员）。在企业实际开发中，一个项目往往是由多个人共同开发完成的，为了使多个参与者都有权限操作远程仓库，就需要邀请其他项目参与者成为当前仓库的成员。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Idea使用配置并使用Git">
+<meta property="og:url" content="http://example.com/2023/03/15/Idea%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE%E5%B9%B6%E4%BD%BF%E7%94%A8Git/index.html">
+<meta property="og:site_name" content="清风不问归途">
+<meta property="og:description" content="注册码云要想使用码云的相关服务，需要注册账号（地址： https:&#x2F;&#x2F;gitee.com&#x2F;signup）   创建远程仓库    填写仓库信息   查看仓库   邀请其他开发人员前面已经在码云上创建了自己的远程仓库，目前仓库成员只有自己一个人（身份为管理员）。在企业实际开发中，一个项目往往是由多个人共同开发完成的，为了使多个参与者都有权限操作远程仓库，就需要邀请其他项目参与者成为当前仓库的成员。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/Doraemon.png">
+<meta property="article:published_time" content="2023-03-15T07:29:19.000Z">
+<meta property="article:modified_time" content="2023-03-15T08:04:31.113Z">
+<meta property="article:author" content="YBX-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/Doraemon.png"><link rel="shortcut icon" href="/img/Doraemon.png"><link rel="canonical" href="http://example.com/2023/03/15/Idea%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE%E5%B9%B6%E4%BD%BF%E7%94%A8Git/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Idea使用配置并使用Git',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-03-15 16:04:31'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Doraemon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Doraemon2.png')"><nav id="nav"><span id="blog-info"><a href="/" title="清风不问归途"><span class="site-name">清风不问归途</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Idea使用配置并使用Git</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-03-15T07:29:19.000Z" title="Created 2023-03-15 15:29:19">2023-03-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-03-15T08:04:31.113Z" title="Updated 2023-03-15 16:04:31">2023-03-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Idea使用配置并使用Git"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="注册码云"><a href="#注册码云" class="headerlink" title="注册码云"></a>注册码云</h1><p>要想使用码云的相关服务，需要注册账号（地址： <a target="_blank" rel="noopener" href="https://gitee.com/signup%EF%BC%89">https://gitee.com/signup）</a><br><img src="/imgs/GitIdea_1.png">  </p>
+<h1 id="创建远程仓库"><a href="#创建远程仓库" class="headerlink" title="创建远程仓库"></a>创建远程仓库</h1><img src="/imgs/GitIdea_2.png">  
+
+<p>填写仓库信息<br><img src="/imgs/GitIdea_3.png">  </p>
+<p>查看仓库<br><img src="/imgs/GitIdea_4.png">  </p>
+<h1 id="邀请其他开发人员"><a href="#邀请其他开发人员" class="headerlink" title="邀请其他开发人员"></a>邀请其他开发人员</h1><p>前面已经在码云上创建了自己的远程仓库，目前仓库成员只有自己一个人（身份为管理员）。在企业实际开发中，一个项目往往是由多个人共同开发完成的，为了使多个参与者都有权限操作远程仓库，就需要邀请其他项目参与者成为当前仓库的成员。  </p>
+<ul>
+<li><p>进入仓库管理中心，点击仓库成员管理</p>
+  <img src="/imgs/GitIdea_k.png">  		
+</li>
+<li><p>直接添加成员，输入成员在gitee的邮箱地址</p>
+<img src="/imgs/GitIdea_5.png">  	
+</li>
+<li><p>输入邮箱后，自动提示码云用户信息，确定后点击添加</p>
+<img src="/imgs/GitIdea_6.png">  	
+
+<img src="/imgs/GitIdea_7.png">  	
+</li>
+<li><p>确定成员信息，点击提交</p>
+<img src="/imgs/GitIdea_8.png">  	
+</li>
+<li><p>被要求人员，确认加入<br>被邀请人员，自己登录gitee.com,点击右上角通知，然后进入私信列表，然后点击确认加入  </p>
+<img src="/imgs/GitIdea_9.png"></li>
+</ul>
+<h1 id="从远程仓库获取一个Git仓库"><a href="#从远程仓库获取一个Git仓库" class="headerlink" title="从远程仓库获取一个Git仓库"></a>从远程仓库获取一个Git仓库</h1><p>1.创建一个空的文件夹，右击打开Git Bash</p>
+<p>可以通过Git提供的命令从远程仓库进行克隆，将远程仓库克隆到本地</p>
+<p>​	命令为： git clone 远程Git仓库地址 	</p>
+<p>​    远程Git仓库地址有两种形式，一种是HTTPS协议（HTTP安全协议），另一种是SSH协议（安全外壳协议）。  </p>
+<p>获取仓库地址：<br>点击克隆&#x2F;下载中的复制可以获取该仓库的地址<br><img src="/imgs/GitIdea_10.png"><br>clone 私有库（HTTPS协议）  </p>
+<p>用户必须是当前仓库的成员，克隆时必须提供码云平台的登录邮箱及密码<br><img src="/imgs/GitIdea_11.png">  </p>
+<p>clone 公开库（HTTPS协议）<br>无需提供用户名及密码<br><img src="/imgs/GitIdea_12.png"><br>查看，cd到克隆的文件夹，可以看到，master主线，在clone的时候同时帮我们checkout检出<br><img src="/imgs/GitIdea_13.png">  </p>
+<h1 id="操作远程仓库"><a href="#操作远程仓库" class="headerlink" title="操作远程仓库"></a>操作远程仓库</h1><h2 id="查看GIt仓库关联的远程仓库"><a href="#查看GIt仓库关联的远程仓库" class="headerlink" title="查看GIt仓库关联的远程仓库"></a>查看GIt仓库关联的远程仓库</h2><p>命令形式：git remote</p>
+<p>如果是远程仓库克隆生成的Git仓库，会显示关联的远程仓库<br><img src="/imgs/GitIdea_14.png"><br>而如果Git仓库是本地初始化的，输入命令则是什么都没有<br><img src="/imgs/GitIdea_15.png"><br>tips：如果没有关联远程仓库是没有办法push到远程仓库的</p>
+<h2 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h2><p>命令形式：git push 【remote name】【branch name】 </p>
+<p>【remote name】：远程仓库名：通过git remote查看的结果</p>
+<p>【branch name】 ：分支，master</p>
+<p><strong>推送前建议把工作区的内容都提交到本地仓库</strong></p>
+<p>当你想分享你的代码时，可以将其推送到远程仓库。<br><img src="/imgs/GitIdea_16.png"><br>查看远程仓库：<br><img src="/imgs/GitIdea_17.png">  </p>
+<h2 id="合并冲突模拟和解决"><a href="#合并冲突模拟和解决" class="headerlink" title="合并冲突模拟和解决"></a>合并冲突模拟和解决</h2><p>用户推送之前，需要先pull远端仓库，如果发现提交版本不一致，出现如下错误：<br><img src="/imgs/GitIdea_18.png">  </p>
+<h2 id="从远程仓库中抓取和拉取"><a href="#从远程仓库中抓取和拉取" class="headerlink" title="从远程仓库中抓取和拉取"></a>从远程仓库中抓取和拉取</h2><ul>
+<li><p>抓取 命令形式：git fetch【remote name】【branch name】    <strong>(不推荐)</strong></p>
+<p>  git fetch 是从远程仓库获取最新版本到本地仓库，不会自动merge</p>
+<p>  合并远程分支内容到当前,命令形式: git merge【remote name】【branch name】</p>
+</li>
+</ul>
+<img src="/imgs/GitIdea_19.png">  
+* 拉取 命令形式：git pull【remote name】【branch name】    **（推荐）**
+
+<p><strong>操作命令之前，务必把工作区的内容添加到暂存区在拉取代码。</strong><br><img src="/imgs/GitIdea_20.png">  </p>
+<h1 id="在IDEA中设置Git"><a href="#在IDEA中设置Git" class="headerlink" title="在IDEA中设置Git"></a>在IDEA中设置Git</h1><p>进入File–&gt;Setting-&gt;Version Control–&gt;Git–&gt;Path to Git executable选择你的git安装后的git.exe文件，然后点击Test，测试是否设置成功<br><img src="/imgs/GitIdea_21.png">  </p>
+<h2 id="创建本地仓库"><a href="#创建本地仓库" class="headerlink" title="创建本地仓库"></a>创建本地仓库</h2><p>VCS–&gt;Import into Version Control–&gt;Create Git Repository…<br><img src="/imgs/GitIdea_22.png"><br>以当前项目为Git本地库更加方便管理<br><img src="/imgs/GitIdea_23.png">  </p>
+<h2 id="启用版本控制"><a href="#启用版本控制" class="headerlink" title="启用版本控制"></a>启用版本控制</h2><img src="/imgs/GitIdea_24.png">   
+
+<p>选择版本控制器<br><img src="/imgs/GitIdea_25.png">   </p>
+<p>添加成功右下角弹出如下图内容<br><img src="/imgs/GitIdea_26.png">   </p>
+<h2 id="显示Git窗口"><a href="#显示Git窗口" class="headerlink" title="显示Git窗口"></a>显示Git窗口</h2><img src="/imgs/GitIdea_27.png">   
+
+<h2 id="创建项目对应的远程仓库"><a href="#创建项目对应的远程仓库" class="headerlink" title="创建项目对应的远程仓库"></a>创建项目对应的远程仓库</h2><img src="/imgs/GitIdea_28.png">  
+
+<h2 id="设置远程仓库"><a href="#设置远程仓库" class="headerlink" title="设置远程仓库"></a>设置远程仓库</h2><img src="/imgs/GitIdea_29.png">  
+
+<h2 id="提交到本地仓库"><a href="#提交到本地仓库" class="headerlink" title="提交到本地仓库"></a>提交到本地仓库</h2><img src="/imgs/GitIdea_30.png">  
+
+<h2 id="推送到远程仓库-1"><a href="#推送到远程仓库-1" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h2><img src="/imgs/GitIdea_31.png">  
+
+<h2 id="从远程仓库更新"><a href="#从远程仓库更新" class="headerlink" title="从远程仓库更新"></a>从远程仓库更新</h2><img src="/imgs/GitIdea_32.png">  
+
+<h2 id="创建新的分支"><a href="#创建新的分支" class="headerlink" title="创建新的分支"></a>创建新的分支</h2><img src="/imgs/GitIdea_33.png">  
+
+<h1 id="组员练习"><a href="#组员练习" class="headerlink" title="组员练习"></a>组员练习</h1><ul>
+<li><p>其中一位同学操作如下：<br>1.先创建远程仓库，把组员添加到仓库成员</p>
+<p>2.在idea中创建项目</p>
+<p>3.把代码从工作区添加到暂存区git add .</p>
+<p>4.提交代码到本地仓库git commit.</p>
+<p>6.把代码推送到服务端</p>
+</li>
+<li><p>另外一位同学操作</p>
+<p>1.从远程仓库克隆项目</p>
+<p>2.使用idea打开项目，进行修改测试</p>
+</li>
+<li><p>测试：</p>
+<p>1.先创建不同的java文件进行各自的提交 推送到远程服务器，记得push前先pull</p>
+<p>2.两位同学再在同一个java文件的同一个位置进行修改 提交 推送到远程服务器，记得push前先pull</p>
+</li>
+</ul>
+<p><strong>在idea中从远程仓库直接克隆项目</strong><br><img src="/imgs/GitIdea_34.png">  </p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">YBX-CN</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/03/15/Idea%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE%E5%B9%B6%E4%BD%BF%E7%94%A8Git/">http://example.com/2023/03/15/Idea%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE%E5%B9%B6%E4%BD%BF%E7%94%A8Git/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/Doraemon.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/03/14/Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/" title="Git分布式版本控制工具"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Git分布式版本控制工具</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/Doraemon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">YBX-CN</div><div class="author-info__description">归途也还可爱</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C%E7%A0%81%E4%BA%91"><span class="toc-number">1.</span> <span class="toc-text">注册码云</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">创建远程仓库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%82%80%E8%AF%B7%E5%85%B6%E4%BB%96%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98"><span class="toc-number">3.</span> <span class="toc-text">邀请其他开发人员</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E8%8E%B7%E5%8F%96%E4%B8%80%E4%B8%AAGit%E4%BB%93%E5%BA%93"><span class="toc-number">4.</span> <span class="toc-text">从远程仓库获取一个Git仓库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">5.</span> <span class="toc-text">操作远程仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8BGIt%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94%E7%9A%84%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">5.1.</span> <span class="toc-text">查看GIt仓库关联的远程仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">5.2.</span> <span class="toc-text">推送到远程仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E5%86%B2%E7%AA%81%E6%A8%A1%E6%8B%9F%E5%92%8C%E8%A7%A3%E5%86%B3"><span class="toc-number">5.3.</span> <span class="toc-text">合并冲突模拟和解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%AD%E6%8A%93%E5%8F%96%E5%92%8C%E6%8B%89%E5%8F%96"><span class="toc-number">5.4.</span> <span class="toc-text">从远程仓库中抓取和拉取</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8IDEA%E4%B8%AD%E8%AE%BE%E7%BD%AEGit"><span class="toc-number">6.</span> <span class="toc-text">在IDEA中设置Git</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-number">6.1.</span> <span class="toc-text">创建本地仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E7%94%A8%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6"><span class="toc-number">6.2.</span> <span class="toc-text">启用版本控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E7%A4%BAGit%E7%AA%97%E5%8F%A3"><span class="toc-number">6.3.</span> <span class="toc-text">显示Git窗口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E5%AF%B9%E5%BA%94%E7%9A%84%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">6.4.</span> <span class="toc-text">创建项目对应的远程仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">6.5.</span> <span class="toc-text">设置远程仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E5%88%B0%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-number">6.6.</span> <span class="toc-text">提交到本地仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93-1"><span class="toc-number">6.7.</span> <span class="toc-text">推送到远程仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E6%9B%B4%E6%96%B0"><span class="toc-number">6.8.</span> <span class="toc-text">从远程仓库更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E5%88%86%E6%94%AF"><span class="toc-number">6.9.</span> <span class="toc-text">创建新的分支</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E5%91%98%E7%BB%83%E4%B9%A0"><span class="toc-number">7.</span> <span class="toc-text">组员练习</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/15/Idea%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE%E5%B9%B6%E4%BD%BF%E7%94%A8Git/" title="Idea使用配置并使用Git">Idea使用配置并使用Git</a><time datetime="2023-03-15T07:29:19.000Z" title="Created 2023-03-15 15:29:19">2023-03-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/14/Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/" title="Git分布式版本控制工具">Git分布式版本控制工具</a><time datetime="2023-03-14T06:25:17.000Z" title="Created 2023-03-14 14:25:17">2023-03-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/13/Dubbo%E5%A4%BA%E5%91%BD17%E8%BF%9E%E9%97%AE/" title="Dubbo夺命17连问">Dubbo夺命17连问</a><time datetime="2023-03-13T06:45:28.000Z" title="Created 2023-03-13 14:45:28">2023-03-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/10/Mybatis%E5%92%8CSpring%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" title="Mybatis和Spring常见问题">Mybatis和Spring常见问题</a><time datetime="2023-03-10T13:29:16.000Z" title="Created 2023-03-10 21:29:16">2023-03-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/07/Spring%E7%9A%84AOP/" title="Spring的AOP">Spring的AOP</a><time datetime="2023-03-07T06:01:22.000Z" title="Created 2023-03-07 14:01:22">2023-03-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By YBX-CN</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
