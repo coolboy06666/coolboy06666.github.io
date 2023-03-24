@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>doucker简介 | 清风不问归途</title><meta name="author" content="YBX-CN"><meta name="copyright" content="YBX-CN"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="我们为什么使用Docker?当我们在工作中，一款产品从开发设计到上线运行，其中需要开发人员和运维工程师，开发人员负责代码编写，开发产品，运维工程师需要测试环境，产品部署。这之间就会有分歧。 就好比我之前开发的一个电商项目，其中包括 Java 环境&#x2F;Tomcat&#x2F; MySQL &#x2F; JDBC 驱动包&#x2F;相应 jar 包，还有SSM框架及搜索引擎Solr等技术，仅仅">
+<meta property="og:type" content="article">
+<meta property="og:title" content="doucker简介">
+<meta property="og:url" content="http://example.com/2023/03/24/doucker%E7%AE%80%E4%BB%8B/index.html">
+<meta property="og:site_name" content="清风不问归途">
+<meta property="og:description" content="我们为什么使用Docker?当我们在工作中，一款产品从开发设计到上线运行，其中需要开发人员和运维工程师，开发人员负责代码编写，开发产品，运维工程师需要测试环境，产品部署。这之间就会有分歧。 就好比我之前开发的一个电商项目，其中包括 Java 环境&#x2F;Tomcat&#x2F; MySQL &#x2F; JDBC 驱动包&#x2F;相应 jar 包，还有SSM框架及搜索引擎Solr等技术，仅仅">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/Doraemon.png">
+<meta property="article:published_time" content="2023-03-24T12:32:43.000Z">
+<meta property="article:modified_time" content="2023-03-24T12:37:26.781Z">
+<meta property="article:author" content="YBX-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/Doraemon.png"><link rel="shortcut icon" href="/img/Doraemon.png"><link rel="canonical" href="http://example.com/2023/03/24/doucker%E7%AE%80%E4%BB%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'doucker简介',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-03-24 20:37:26'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Doraemon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Doraemon2.png')"><nav id="nav"><span id="blog-info"><a href="/" title="清风不问归途"><span class="site-name">清风不问归途</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">doucker简介</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-03-24T12:32:43.000Z" title="Created 2023-03-24 20:32:43">2023-03-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-03-24T12:37:26.781Z" title="Updated 2023-03-24 20:37:26">2023-03-24</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="doucker简介"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="我们为什么使用Docker"><a href="#我们为什么使用Docker" class="headerlink" title="我们为什么使用Docker?"></a>我们为什么使用Docker?</h1><p>当我们在工作中，一款产品从开发设计到上线运行，其中需要开发人员和运维工程师，开发人员负责代码编写，开发产品，运维工程师需要测试环境，产品部署。这之间就会有分歧。</p>
+<p>就好比我之前开发的一个电商项目，其中包括 Java 环境&#x2F;Tomcat&#x2F; MySQL &#x2F; JDBC 驱动包&#x2F;相应 jar 包，还有SSM框架及搜索引擎Solr等技术，仅仅是在windows系统上协调这些项目的版本，保证环境不冲突及项目正常运行，就需要大量时间来调试，而我们技术人员往往在windows系统上开发及调试，那么上线的时候需要部署到linux系统中，这就会导致由于环境不同的产品部署问题。</p>
+<p>往往就算不跨系统，而是换一台同样操作系统的服务器，要移植部署依然很麻烦，那么为了解决这个问题，Docker就体现出了他的用处！</p>
+<h1 id="Docker是什么？"><a href="#Docker是什么？" class="headerlink" title="Docker是什么？"></a>Docker是什么？</h1><p>Docker 是一个开源的应用容器引擎</p>
+<p>Docker 其中包括，镜像、容器、仓库，很简单，目的就是通过对应用组件的封装、分发、部署、运行等生命周期的管理，使用户的产品（可以是 web 应用或者数据库应用）及其环境能够做到“一次封装，到处运行”。</p>
+<p>再通俗点说，我们使用Docker，只需要配置一次Docker容器上面的应用，就可以跨平台，跨服务器，实现应用程序跨平台间的无缝衔接</p>
+<p>Docker实际上就相当于一个封闭的沙盒或者是集装箱，它可以把不同的应用全都放在它的集装箱里面，并且以后有需要的时候，可以直接把集装箱搬到其他平台或者服务器上，实现容器虚拟化技术，随用随搬</p>
+<p>一句话，Docker解决了运行环境和配置问题软件容器，方便做持续集成并有助于整体发布的容器虚拟化技术。</p>
+<h1 id="镜像-概念：复制的程序"><a href="#镜像-概念：复制的程序" class="headerlink" title="镜像-(概念：复制的程序)"></a>镜像-(概念：复制的程序)</h1><p>定义：Docker 镜像可以看作是一个特殊的文件系统，除了提供容器运行时所需的程序、库、资源、配置等文件外，还包含了一些为运行时准备的一些配置参数（如匿名卷、环境变量、用户等）。  </p>
+<p>作用 ： Docker镜像是用来启动容器的，也用来创建新的容器，类似于虚拟机的快照。  </p>
+<p>特点 ： 镜像不包含任何动态数据，其内容在构建之后也不会被改变，在Docker里可以创建镜像，也可以从第三方的网站上下载别人已经做好的镜像来使用<br>2.2 容器-(概念：集装箱)  </p>
+<p>定义 : 一个Docker镜像可以实例化出来多个容器，而每一个容器之间是独立运行的，没有任何依赖<br>作用 : 运行程序员开发的应用程序的<br>特点 : Docker镜像是不能运行的，是静态的，而Docker容器是运行的，是动态的，可以将Docker容器想像成一个简化版的操作系统和一些核心基础的应用。每个容器运行一个独立的应用程序。</p>
+<h1 id="仓库-概念：存放镜像的地方"><a href="#仓库-概念：存放镜像的地方" class="headerlink" title="仓库-(概念：存放镜像的地方)"></a>仓库-(概念：存放镜像的地方)</h1><p>定义 : Docker仓库提供一个注册服务器，用于存储多个仓库，而仓库是用来存储镜像位置的  </p>
+<p>作用: 我们自已创建了一个镜像之后，可以使用push命令将镜像文件上传到仓库中，后期如果在其它服务器上需要使用镜像，就可以从仓库上下载过来并使用  </p>
+<p>总结： 说白了镜像就等于一个centos系统的安装程序,一个镜像只是一个只读环境而已,这个镜像提供的是基础的运行环境,而你在Centos7系统中安装的应用,比如Redis,Mysql这些应用就相当于一个容器,这些容器都是单独可运行的,仓库的概念就更好理解了,在Centos7系统中下载的所有应用都被收集到同一个仓库里了,比如Maven仓库</p>
+<h1 id="Docker的作用？"><a href="#Docker的作用？" class="headerlink" title="Docker的作用？"></a>Docker的作用？</h1><p>3.1 结论<br>绝大部分应用，开发者都可以通过docker build创建镜像，通过docker push上传镜像，用户通过docker pull下载镜像，用docker run运行应用。用户不需要再去关心如何搭建环境，如何安装，如何解决不同发行版的库冲突,而且通常不会需要消耗更多的硬件资源，不会明显降低性能。这就是所说的标准化、集装箱的原因所在。</p>
+<ol>
+<li><p>解决运行环境不一致所导致的问题。这样就不会产生“本地运行没问题，可一到服务器上就不行了”的情况  </p>
+</li>
+<li><p>限定最大的cpu使用内存硬盘，这样就起到了隔离的作用，避免产生“一块代码产生死循环，把磁盘占满了，其它程序也挂了”的情况。  </p>
+</li>
+<li><p>docker的标准化让快速扩展，弹性伸缩变得简单</p>
+</li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>容器不是模拟一个完整的操作系统而是对进程进行隔离，有了容器，我们就可以将软件运行所需的所有资源打包到一个隔离的容器中，容器与虚拟机不同，不需要捆绑一整套操作系统，只需要软件工作所需的库资源和设置。系统因此而变得高效轻量并保证部署在任何环境中的软件都能始终如一地运行</p>
+<h1 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h1><p>举例: 我把货物一辆兰博基尼跑车（好比开发好的应用APP），打包放到一容器集装箱里，它通过货轮可以轻而易举的从上海码头（CentOS7.2环境）运送到纽约码头（Ubuntu14.04环境）。而且运输期间，我的兰博基尼（APP）没有受到任何的损坏（文件没有丢失），在另外一个码头卸货后，依然可以完美风骚的赛跑（启动正常）</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">YBX-CN</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/03/24/doucker%E7%AE%80%E4%BB%8B/">http://example.com/2023/03/24/doucker%E7%AE%80%E4%BB%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/Doraemon.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/03/17/Spring%E6%80%BB%E7%BB%93/" title="Spring总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Spring总结</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/Doraemon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">YBX-CN</div><div class="author-info__description">归途也还可爱</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8Docker"><span class="toc-number">1.</span> <span class="toc-text">我们为什么使用Docker?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">Docker是什么？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%95%9C%E5%83%8F-%E6%A6%82%E5%BF%B5%EF%BC%9A%E5%A4%8D%E5%88%B6%E7%9A%84%E7%A8%8B%E5%BA%8F"><span class="toc-number">3.</span> <span class="toc-text">镜像-(概念：复制的程序)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%93%E5%BA%93-%E6%A6%82%E5%BF%B5%EF%BC%9A%E5%AD%98%E6%94%BE%E9%95%9C%E5%83%8F%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="toc-number">4.</span> <span class="toc-text">仓库-(概念：存放镜像的地方)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker%E7%9A%84%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">Docker的作用？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BE%E4%BE%8B"><span class="toc-number">7.</span> <span class="toc-text">举例</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/24/doucker%E7%AE%80%E4%BB%8B/" title="doucker简介">doucker简介</a><time datetime="2023-03-24T12:32:43.000Z" title="Created 2023-03-24 20:32:43">2023-03-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/17/Spring%E6%80%BB%E7%BB%93/" title="Spring总结">Spring总结</a><time datetime="2023-03-17T01:48:28.000Z" title="Created 2023-03-17 09:48:28">2023-03-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/15/Idea%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE%E5%B9%B6%E4%BD%BF%E7%94%A8Git/" title="Idea使用配置并使用Git">Idea使用配置并使用Git</a><time datetime="2023-03-15T07:29:19.000Z" title="Created 2023-03-15 15:29:19">2023-03-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/14/Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/" title="Git分布式版本控制工具">Git分布式版本控制工具</a><time datetime="2023-03-14T06:25:17.000Z" title="Created 2023-03-14 14:25:17">2023-03-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/13/Dubbo%E5%A4%BA%E5%91%BD17%E8%BF%9E%E9%97%AE/" title="Dubbo夺命17连问">Dubbo夺命17连问</a><time datetime="2023-03-13T06:45:28.000Z" title="Created 2023-03-13 14:45:28">2023-03-13</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By YBX-CN</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
